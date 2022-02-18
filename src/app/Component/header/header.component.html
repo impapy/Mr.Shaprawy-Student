@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg  navbar-light sticky-top p-0 navestyle">
+    <a routerLink="/Home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <div class="m-0 "><img src="assets\image\logoc.png" class="img-fluid point logo" alt=""></div>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span> </button>
+
+        <div class="float-end nav-link getstarted d-lg-none ">
+            <a  [hidden]="logstatuse" routerLink="/User/login" class="nav-link text-light scrollto d-lg-none ">login <i
+                class="bi bi-box-arrow-in-left"></i></a>
+        <a  [hidden]="!logstatuse" class="nav-link scrollto d-lg-none text-light " (click)='logout()'>logout <i
+                class="bi bi-box-arrow-in-right"></i></a>
+        </div>
+        
+   
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <!-- <a  [hidden]="logstatuse" routerLink="/User/login" class="nav-link scrollto d-lg-none">login <i
+                    class="bi bi-box-arrow-in-left"></i></a>
+            <a  [hidden]="!logstatuse" class="nav-link scrollto d-lg-none" (click)='logout()'>logout <i
+                    class="bi bi-box-arrow-in-right"></i></a> -->
+
+            <a class=" nav-link scrollto   me-1" [href]="info?.information.youtubeLink" target="_blank">
+                 <i class="bi bi-youtube text-danger"></i></a>
+            <a class=" nav-link scrollto    me-1" [href]="info?.information.facebookLink" target="_blank"><i
+                    class="bi bi-facebook text-primary" target="_blank"></i></a>
+            <a class="nav-link scrollto   text-dark me-1" [href]="info?.information.tiktokLink" target="_blank"><i class="bi bi-tiktok"></i></a>
+            <a class="nav-link scrollto  text-warning me-1" [href]="info?.information.instagramLink" target="_blank"><i
+                    class="bi bi-instagram"></i></a>
+                    <a class="nav-link scrollto  text-success me-1" [href]="info?.information.whatsappLink" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    
+        </div>
+        <div [hidden]="logstatuse"> <a [hidden]="logstatuse" routerLink="/User/login"
+                class="btn py-2 px-lg-2 d-none d-lg-block getstarted scrollto">login<i
+                    class="bi bi-box-arrow-in-left"></i></a></div>
+        <div [hidden]="!logstatuse"><a class="btn py-2 px-lg-2 d-none d-lg-block getstarted scrollto"
+                (click)='logout()'>logout<i class="bi bi-box-arrow-in-right"></i></a></div>
+    </div>
+
+
+</nav>

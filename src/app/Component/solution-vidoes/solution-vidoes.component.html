@@ -1,0 +1,21 @@
+<div  class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <div class=" border w-100">
+            <div class="card ">
+                <div class="card-body w-100 text-center">
+                    <h5 class="card-title fs-2 fw-bold">{{vdet?.name}}</h5>
+                </div>
+                <div class="embed-responsive ">
+                    <iframe class="e2e-iframe-trusted-src vidsyize w-100"  [src]="UrlV|safe"
+                    title="YouTube video player" frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+               
+                <div dir="rtl" class="card-body">
+                    <p class="card-text fw-bold"><small class="text-muted">{{vdet?.description}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-5"></div>

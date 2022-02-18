@@ -1,0 +1,20 @@
+<div dir="rtl" *ngIf="imagearray?.length==0" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <h3>Homework for : {{HWIM?.name}}</h3>
+        <h4 class="text-danger">غير متاح الان</h4>
+    </div>
+</div>
+
+<div *ngIf="imagearray?.length!=0" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <h3>Homework : {{HWIM?.name}}</h3>
+        <h3 dir="rtl" class="float-end fs-3 fw-bold">حل الواجب كل يوم ثلاثاء</h3>
+        <div *ngFor="let item of imagearray " class="col-12 align-center mt-4">
+            <img [src]="imgurl+item" class="img-fluid imagecard w-100" />
+        </div>
+        <div *ngIf="issolution" class="text-center mt-3">
+            <button (click)="gotosolution()" type="button" class="btn btn-success fs-3 fw-bold w-50">solution</button>
+        </div>
+    </div>
+</div>
+<div class="mt-5"></div>

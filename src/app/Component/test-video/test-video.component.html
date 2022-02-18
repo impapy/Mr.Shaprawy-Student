@@ -1,0 +1,84 @@
+<div *ngIf="Test?.issuccessfull && ististed" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <div dir="rtl" class="fw-bold text-center fs-2 text-success">
+            انت ناجح للاسف
+        </div>
+        <div dir="rtl" class="fw-bold text-center fs-2 text-success">
+           عديت الامتحاان بنسبه 
+        </div>
+        <div class=" text-center fs-4">
+            {{Test?.degre}}%
+        </div>
+    </div>
+</div>
+<div *ngIf="!Test?.issuccessfull && ististed"  class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <div dir="rtl"  class="fw-bold text-center fs-2 text-danger">
+            منجحتش ليه يا .... <i class="bi bi-emoji-angry-fill"></i>
+        </div>
+        <div dir="rtl" class=" fw-bold text-center fs-2 text-danger">
+            ليه تجيب 
+        </div>
+        <div class=" text-center fs-4">
+            {{Test?.degre}}%
+        </div>
+        <div>
+            <div class="ml-auto mr-sm-5 w-100"> 
+                <div dir="rtl" class="fw-bold fs-3 float-end">اتفضل عيده يارب تكسفني المره دي   >> </div>  
+                <button type="button" class="w-50 btn btn-success float-start fw-bold fs-4" (click)="retrayagan()">اعاده الاختبار</button>
+             </div>
+           </div>
+    </div>
+  
+</div>
+<div *ngIf="!ististed" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 w-25 align-center row">
+        <b class="fontsizetim fw-bold text-center">{{counter | formatTime}}</b>
+    </div>
+</div>
+<div dir="rtl" *ngIf="!ististed" class="d-flex justify-content-center w-100 ">
+    <div class=" container mt-sm-5 my-1 align-center backg">
+        <h3 class="text-success fw-bold fs-2">اختر الاجابه الصحيحه</h3>
+        <h5 class="fw-bold fs-3">الدرجه : ({{testvedios?.length}})</h5>
+        <form  (ngSubmit)="submit()" class=" w-100 mt-2">
+        
+        <div  *ngFor="let state of testvedios; let i=index;" class="question ml-sm-5 pl-sm-5 pt-2">
+            <div class="py-2 h5"><b>({{i+1}}) {{state?.question}}</b></div>
+            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                <label class="options">{{state?.a}}
+                    <input type="radio" name="{{state.question}}" value="{{state?.a}}"
+                    (change)="onRadioChange(state.a,state.question)"> <span class="checkmark"></span> </label>
+            </div>
+            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                <label class="options">{{state?.b}}
+                    <input type="radio" name="{{state.question}}" value="{{state?.b}}" 
+                    (change)="onRadioChange(state.b,state.question)"> <span class="checkmark"></span> </label>
+            </div>
+            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                <label class="options">{{state?.c}}
+                    <input type="radio" name="{{state.question}}" value="{{state?.c}}" 
+                    (change)="onRadioChange(state.c,state.question)"> <span class="checkmark"></span> </label>
+            </div>
+            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                <label class="options">{{state?.d}}
+                    <input type="radio" name="{{state.question}}" value="{{state?.d}}"
+                    (change)="onRadioChange(state.d,state.question)" >  <span class="checkmark"></span> </label>
+            </div>
+            <!-- <div *ngIf="f.sport.touched && f.sport.invalid" class="alert alert-danger">
+                <div *ngIf="f.sport.errors?.required">Name is required.</div>
+              </div> -->
+            <hr class="w-100">
+        </div>
+        <hr class="w-100"><hr class="w-100">
+        <hr class="w-100"><hr class="w-100">
+        <hr class="w-100"><hr class="w-100">
+        <div class="d-flex align-items-center pt-3">
+            <!-- <div class="ml-auto mr-sm-5 w-100"> <button  class="btn btn-danger float-start">Previous</button> </div> -->
+            <div class="ml-auto mr-sm-5 w-100 text-center"> 
+                <button type="submit" class="btn btn-success  fw-bold fs-3 w-50"  [disabled]="answer?.length!=testvedios?.length">النتيجه</button> </div>
+            <!-- <div class="ml-auto mr-sm-5 w-100"> <button type="submit" class="btn btn-success float-end">Next</button> </div> -->
+        </div>
+    </form>
+    </div>
+</div>
+<div class="mt-5"></div>

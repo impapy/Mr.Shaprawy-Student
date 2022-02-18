@@ -1,0 +1,109 @@
+<p></p>
+<div dir="rtl" *ngIf="Test?.issuccessfull && ististed" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <div class=" text-center fs-2 fw-bold text-success">
+            تخطيت الاختبار للاسف
+        </div>
+        <div class=" text-center fs-2 fw-bold text-success">
+            بنسبه
+        </div>
+        <div class=" text-center fs-3 fw-bold">
+            {{Test?.degre}}%
+        </div>
+    </div>
+</div>
+<div *ngIf="!Test?.issuccessfull && ististed" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center">
+        <div class=" text-center fs-2 fw-bold text-danger">
+            لم تستطع تجاوز ذلك الاختبار
+        </div>
+        <div class=" text-center fs-2 fw-bold text-danger">
+            بنسبه
+        </div>
+        <div *ngIf="Test?.isgoto=='Done'" class=" text-center fw-bold fs-4">
+            {{Test?.degre}}%
+        </div>
+        <div *ngIf="Test?.isgoto!='Done'" class=" text-center fs-3">
+             وذلك بسبب {{Test?.isgoto}}
+        </div>
+
+    </div>
+
+</div>
+<div *ngIf="!ististed" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 w-25 align-center row">
+        <h2 class="fontsizetim fw-bold text-center">{{counter | formatTime}}</h2>
+    </div>
+</div>
+
+<div dir="rtl" *ngIf="!ististed" class="d-flex justify-content-center w-100 ">
+    <div class="container  my-1 align-center row backg">
+        <div class="col-6">
+            <h3 *ngIf="year=='first'" class="fw-bold ">امتحان سنه اولا</h3>
+            <h3 *ngIf="year=='second'" class="fw-bold">امتحان سنه تانيه</h3>
+            <h3 *ngIf="year=='third'" class="fw-bold">امتحان سنه تالته</h3>
+            <h3 class="fw-bold"> شهر :{{month}}</h3>
+            <h5>الطالب  : {{userName}}</h5>
+        </div>
+        <div class="col-6">
+            <h3 class="fw-bold">اختر الاجابه الصحيحه</h3>
+            <h3 class="fw-bold">عدد الاسئله  : {{totalQuestin}} </h3>
+            <h3 class="fw-bold">الدرجه : {{totaldegree}}</h3>
+        </div>
+
+        <hr>
+        <hr>
+
+        <form (ngSubmit)="submit()" class="w-100 mt-2">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class="py-2 h5"><b>( {{counytest+1}} ) : {{oneQuestion?.question}}</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">{{oneQuestion?.a}}
+                        <input type="radio" name="{{oneQuestion?.question}}" value="{{oneQuestion?.a}}"
+                            (change)="onRadioChange(oneQuestion.a,oneQuestion.question)" [checked]="oneQuestion?.a===checkres?.result" > 
+                           
+                            <span class="checkmark"></span> </label>
+                </div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">{{oneQuestion?.b}}
+                        <input type="radio" name="{{oneQuestion?.question}}" value="{{oneQuestion?.b}}"
+                            (change)="onRadioChange(oneQuestion.b,oneQuestion.question)" [checked]="oneQuestion?.b===checkres?.result"> <span
+                            class="checkmark"></span> </label>
+                </div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">{{oneQuestion?.c}}
+                        <input type="radio" name="{{oneQuestion?.question}}" value="{{oneQuestion?.c}}"
+                            (change)="onRadioChange(oneQuestion.c,oneQuestion.question)" [checked]="oneQuestion?.c===checkres?.result"> <span
+                            class="checkmark"></span> </label>
+                </div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">{{oneQuestion?.d}}
+                        <input type="radio" name="{{oneQuestion?.question}}" value="{{oneQuestion?.d}}"
+                            (change)="onRadioChange(oneQuestion.d,oneQuestion.question)" [checked]="oneQuestion?.d===checkres?.result"> <span
+                            class="checkmark"></span> </label>
+                </div>
+
+
+            </div>
+            <hr class="w-100">
+            <hr class="w-100">
+            <div class="d-flex align-items-center pt-3">
+                <div *ngIf="counytest+1!=totalQuestin" class="ml-auto mr-sm-5 w-100">
+                    <button (click)="nextquestion()" [disabled]="answer.length==counytest" type="button"
+                        class="btn btn-success float-end fw-bold fs-3 w-25">
+                        <i class="bi bi-chevron-double-right"></i></button>
+                </div>
+                <div *ngIf="counytest!=0" class="ml-auto mr-sm-5 w-100">
+                    <button (click)="privequestion()"  type="button"
+                        class="btn btn-success float-start fw-bold fs-3 w-25">
+                        <i class="bi bi-chevron-double-left "></i></button>
+                </div>
+               
+                
+            </div>
+            <div *ngIf="counytest+1==totalQuestin" class="ml-auto mt-3 mr-sm-5 w-100">
+                <button type="submit" class="btn btn-success w-100 fw-bold fs-3">النتيجه</button>
+            </div>
+        </form>
+    </div>
+</div>

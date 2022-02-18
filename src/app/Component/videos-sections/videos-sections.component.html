@@ -1,0 +1,68 @@
+<!-- <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><hr>
+  -->
+<nav class="navbar navbar-expand-xxl navbar-light sticky-top p-0 navestyle d-block d-md-none d-sm-none d-lg-none">
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse1">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse1">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <ul class="list-group list-group-flush horizontal w-100" id="nav">
+                <li class="list-group-item" *ngFor="let state of vidSecforname" (click)="setStateAsActive(state.name)">
+                    <a class="btn w-100" [class.active]="state.name === activeState" (click)="getvidoesid(state)">
+                        <div class="w-100 text-start"> {{ state.name }}</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="d-none d-md-block d-sm-block d-lg-block col-sm-3 col-3 border">
+            <div class="mt-3">
+               <div class="w-100 text-center "> <p class="fw-bold fonrwidth">عناوين الشرح</p></div>
+
+
+                <ul dir="rtl" class="list-group list-group-flush horizontal w-100" id="nav">
+                    <li class="list-group-item" *ngFor="let state of vidSecforname"
+                        (click)="setStateAsActive(state.name)">
+                        <a class="btn w-100" [class.active]="state.name === activeState" (click)="getvidoesid(state)">
+                            <div class="w-100 text-end"> {{ state.name }}</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-9 col-12 border ">
+            <div class="card ">
+                <div class="card-body m-2 text-center">
+                    <h5 class="card-title">{{vidSec?.name}}</h5>
+                </div>
+                <div class="embed-responsive w-100 text-center">
+                    <iframe class="e2e-iframe-trusted-src vidsyize w-75" [src]="UrlV|safe" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div dir="rtl" class="card-body fw-bold">
+                    <p class="card-text"><small class="text-muted">{{vidSec?.description}}</small></p>
+                </div>
+
+                <div *ngIf=" this.sec!='general'" class="text-center">
+                    <button type="button" class="btn btn-secondary fw-bold fs-4 w-25"
+                        (click)="gotoHW(vidSec._id)">الواجب</button>
+                    <button type="button" class="btn btn-success ms-3 fw-bold fs-4 w-25"
+                        (click)="gototest(vidSec._id)">اختبر نفسك</button>
+                </div>
+
+<div class="mt-3"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div dir="rtl" class="row">
+
+
+
+    <div dir="rtl" class="card border-warning m-5 col-md-4 col-10">
+       <div class="card-header">
+        <div class=" fs-4 fw-bold float-start">الطالب</div>
+        <div class=" float-end point">
+            <a [routerLink]="['/User/EditProf']" routerLinkActive="router-link-active" class="point"><i class="bi bi-pencil-square fs-5 fw-bold" title="Edit"></i></a></div>
+       </div> 
+        <div class="card-body">
+            <h5 class="card-title">الاسم : {{alluserdata?.name}}</h5>
+            <h5 class="card-title">الرقم : {{alluserdata?.phone}}</h5>
+            <h5 class="card-text">الايميل : {{alluserdata?.email}} </h5>
+            <h5 class="card-text">السنه : {{alluserdata?.yearstude}} </h5>
+        </div>
+    </div>
+    <div dir="rtl" class="card border-warning m-5 col-md-4 col-10">
+        <div class="card-header">عدد الاختبارات</div>
+        <div class="card-body">
+            <h5 class="card-title">الدروس : {{alluserdata?.reportVideosTest?.length}} </h5>
+            <h5 class="card-text">الاختبارات الشهريه : {{alluserdata?.monthExame?.length}} </h5>
+            <h5 class="card-text">الواجبات : {{alluserdata?.reportHW?.length}} </h5>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div dir="rtl" *ngIf="tests.length!=0" class=" row">
+    <div class=" text-center"> <h3>اختبارات الدرس</h3></div>
+   
+    <div *ngFor="let item of tests" class="card col-md-4 col-10 m-5">
+
+        <div class="card-body">
+            <h5 class="card-title">الدرس: {{item.vidoeaId.name}}</h5>
+            <p class="card-text">الدرجه: {{item.degre}} % </p>
+        </div>
+        <div class="card-footer">
+            <small *ngIf="item.issuccessfull" class=" text-success">تخطيت الاختبار </small>
+            <small *ngIf="!item.issuccessfull" class=" text-danger">لم تتخطي الاختبار </small>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div dir="rtl" *ngIf="exam.length!=0" class=" row">
+    <div class=" text-center"> <h3>الاختبارات الشهريه</h3></div>
+   
+    <div *ngFor="let item of exam" class="card col-md-4 col-10 m-5">
+
+        <div class="card-body">
+            <h5 class="card-title">السنه: {{item.exampId.years}}</h5>
+            <h5 class="card-text">الشهر: {{item.exampId.month}}  </h5>
+            <h5 class="card-title">الدرجه: {{item.degre}} %</h5>
+
+        </div>
+        <div class="card-footer">
+            <small *ngIf="item.issuccessfull" class=" text-success">تخطيت الاختبار </small><br *ngIf="item.issuccessfull">
+            <small *ngIf="!item.issuccessfull" class=" text-danger">لم تتخطي الاختبار </small><br *ngIf="!item.issuccessfull">
+            <small class=" text-warning">{{item?.isgoto}} </small>
+        </div>
+    </div>
+</div>
+<hr> 
+<div dir="rtl" *ngIf="HW.length!=0" class=" row">
+    <div class=" text-center"> <h3>Homework</h3></div>
+   
+    <div *ngFor="let item of HW " class="card col-md-4 col-10 m-5">
+
+        <div class="card-body">
+            <h5 class="card-title">الدرس: {{item.vidoeaId.name}}</h5>
+            <h5 class="card-title">الدرجه: {{item.degre}} %</h5>
+
+        </div>
+        <div class="card-footer">
+            <small *ngIf="item.issuccessfull" class=" text-success">تخطيت الواجب المنزلي </small><br *ngIf="item.issuccessfull">
+            <small *ngIf="!item.issuccessfull" class=" text-danger">تخطيت الواجب المنزلي  </small><br *ngIf="!item.issuccessfull">
+         
+        </div>
+    </div>
+</div>

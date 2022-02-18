@@ -1,0 +1,104 @@
+.fontsizetim
+    font-size: 3.5vw
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+.container
+    background-color: #37517e
+    color: #ddd
+    border-radius: 10px
+    padding: 20px
+    font-family: 'Montserrat', sans-serif
+    max-width: 700px
+
+.container>p
+    font-size: 32px
+
+.question
+    width: 100%
+
+.options
+    position: relative
+    padding-right: 40px
+
+#options label
+    display: block
+    margin-bottom: 15px
+    font-size: 14px
+    cursor: pointer
+
+.options input
+    opacity: 0
+
+.checkmark
+    position: absolute
+    top: -1px
+    right: 0
+    height: 25px
+    width: 25px
+    background-color: #37517e
+    border: 1px solid #ddd
+    border-radius: 50%
+
+.options input:checked~.checkmark:after
+    display: block
+
+.options .checkmark:after
+    content: ""
+    width: 10px
+    height: 10px
+    display: block
+    background: white
+    position: absolute
+    top: 50%
+    left: 50%
+    border-radius: 50%
+    transform: translate(-50%, -50%) scale(0)
+    transition: 300ms ease-in-out 0s
+
+.options input[type="radio"]:checked~.checkmark
+    background: #21bf73
+    transition: 300ms ease-in-out 0s
+
+.options input[type="radio"]:checked~.checkmark:after
+    transform: translate(-50%, -50%) scale(1)
+
+.btn-primary
+    background-color: #37517e
+    color: #ddd
+    border: 1px solid #ddd
+
+.btn-primary:hover
+    background-color: #21bf73
+    border: 1px solid #21bf73
+
+.btn-success
+    padding: 5px 25px
+    background-color: #21bf73
+
+.btn-danger
+    padding: 5px 25px
+    background-color: #a30606
+@media(max-width:576px)
+    .question
+        width: 100%
+        word-spacing: 2px
+
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat)
+    background:
+        image: url($imgpath)
+        position: $position
+        repeat: $repeat
+
+
+.backg
+    @include background('/assets/image/IMG_4211.PNG')
+    background-position: 0 0
+    background-repeat: no-repeat
+    background-size: 50%
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-position: center
+    // background-image:assets/image/clients/3styear.png

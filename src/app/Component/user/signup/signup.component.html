@@ -1,0 +1,78 @@
+<div class="container">
+    <div style=" text-align:center;"
+        class="col-md-offset-4 w-50 w-75-sm position-absolute top-50 start-50 translate-middle bigdiv">
+        <h1 style="text-align:center;  color:#ffffff;" class="pt-3">إنشاء حساب</h1>
+        <h4 style="text-align:center;  color:#ffffff;" class="pt-3">يجب ادخال البيانات كامله</h4>
+        <form [formGroup]="form" (ngSubmit)="signup()">
+        <div class="col-sm-12 pt-2 w-100">
+            <input type="text" class="form-control w-75 text-center  rounded-pill cen" id="firstname" placeholder="الاسم"
+            formControlName="name"  name="firstname" required>
+        </div>
+        <div class="col-sm-12 pt-2">
+            <input type="email" class="form-control w-75 text-center rounded-pill cen" id="email" placeholder="ادخل الايميل"
+            formControlName="email" name="email" required>
+        </div>
+        <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+                        class="">
+                        <div *ngIf="form.controls['email'].errors" class=" text-warning sizetixt">
+                            ادخل ايميل صحيح (test@test.com) 
+                        </div>
+                    </div>
+        <div class="col-sm-12 pt-2">
+            <input type="text" class="form-control w-75 text-center rounded-pill cen" id="mobileno"
+            formControlName="phone"  placeholder="ادخل رقم الموبايل" name="mobileno" required>
+        </div>
+        <div *ngIf="form.controls['phone'].invalid && (form.controls['phone'].dirty || form.controls['phone'].touched)"
+                        class="">
+                        <div *ngIf="form.controls['phone'].errors" class=" text-warning sizetixt">
+                            ارخل رقم صحيح (01*********) 
+                        </div>
+                    </div>
+
+
+        <div class="col-sm-12 pt-2">
+            <div class="input-group w-75 cen">
+            <input [type]="showPassword? 'text' : 'password'" class="form-control text-center  rounded-pill  "  placeholder="ادخل الرقم السري" 
+                formControlName="password" required/>
+                <button type="button" (click)='togglePassword()' class="btn btn-light rounded-circle">
+                    <i *ngIf="!showPassword" class="bi bi-eye-slash-fill"></i>
+                        <i *ngIf="showPassword" class="bi bi-eye-fill"></i>
+                </button>
+        </div>
+        </div>
+        <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)"
+                        class="">
+                        <div *ngIf="form.controls['password'].errors" class=" text-warning sizetixt">
+                            يجب ان يحتوي علي الاقل 8 احرف ولا يزيد عن 15 حرف
+                        </div>
+                    </div>
+                    <div class="col-sm-12 pt-2">
+                        <!-- <input type="file"  class="form-control w-75 text-center rounded-pill cen" name="files" label="add image" (change)="onInputChange($event)" multiple
+                    accept='image/*' formControlName="files"/> -->
+                    <input type="file"  class="form-control w-75 text-center rounded-pill cen" name="files" label="add image" (change)="onInputChange($event)" 
+                    accept='image/*' formControlName="files"/>
+                    </div>
+
+                    
+                    
+                    
+                    <div class="col-sm-12 pt-2 w-100">
+                        <select class="form-select form-control w-75  rounded-pill cen" aria-label="Default select example"
+                        (change)="onChange($event)" placeholder="select stage">
+                            <option [disabled]="true" value="first" selected> اختر الصف</option>
+                            <option value="first">الصف الاول</option>
+                            <option value="second">الصف الثاني</option>
+                            <option value="third">الصف الثالث</option>
+                          </select>
+    </div>
+       
+        <button class="col-md-4 col-md-offset-4 btn mt-3  fs-2 fw-bolder bg-success w-50"
+            style=" color:#000000; " type="submit"  [disabled]="!form.valid"> إنشاء
+        </button>
+        </form>
+        <div class="m-3">
+
+        </div>
+    </div>
+  
+</div>

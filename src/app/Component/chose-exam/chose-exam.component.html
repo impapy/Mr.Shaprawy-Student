@@ -1,0 +1,54 @@
+
+<div dir="rtl" class="d-flex justify-content-center w-100 ">
+    <div class="container mt-sm-5 my-1 align-center row">
+        <div class="col-12 "><h1 class="text-center fw-bold">ملاحظات </h1></div>
+        <hr>
+
+        <div class="col-6 mt-3">
+            <h4 class="fw-bold">(الخطوات) </h4>
+        <h6 class="text-light fs-3 fw-bold">1-اختر السنه الدراسيه</h6>
+        <h6 class="text-light fs-3 fw-bold">2-اختر شهر الامتحان</h6>
+        <h6 class="text-light fs-3 fw-bold">3-اضغط بدا</h6>
+    </div>
+    <div class="col-6 mt-3">
+        <h4 class="fw-bold">(القواعد) </h4>
+        <h6 class="text-light  fs-3 fw-bold"> - لا تغلق الصفحه قبل الانتهاء من حل الاسئله</h6>
+        <h6 class="text-light  fs-3 fw-bold"> - مده الاختبار ساعه</h6>
+        <h6 class="text-light  fs-3 fw-bold"> - لا يمكنك اعاده الاختبار</h6>
+    </div>
+
+
+    <div class="col-12 mt-2">
+        <select  (click)="getyear($event)" class="fs-6 fw-bold form-select w-50" aria-label="Default select example">
+            <option class="fs-6 fw-bold" selected value="">اختر السنه الدراسيه</option>
+            <option class="fs-6 fw-bold" value="first" >الصف الاول</option>
+            <option class="fs-6 fw-bold" value="second">الصف الثاني</option>
+            <option class="fs-6 fw-bold" value="third" >الصف الثالث</option>
+          </select>
+        
+          <select  (click)="getmonth($event)" *ngIf="monthforyear!=''" class="form-select w-50 mt-2 fs-6 fw-bold" aria-label="Default select example">
+            <option class="fs-6 fw-bold" selected value="">اختر شهر الاختبار</option>
+            <option class="fs-6 fw-bold" *ngFor="let item of monthforyear" value="{{item?.month}}">{{item?.month}}</option>
+            
+
+
+
+            <!-- <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="Aug">Aug</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option> -->
+          </select>
+    </div>
+    <div *ngIf="selyear!='' && selmonth!='' " class="col-12 mt-2">
+        <button (click)="Go()" type="button" class="btn btn-success fs-6 fw-bold w-50 float-end">بدء</button>
+    </div>
+    </div>
+</div>

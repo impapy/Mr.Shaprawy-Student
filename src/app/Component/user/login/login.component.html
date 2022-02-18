@@ -1,0 +1,38 @@
+
+    <div class="container w-50 py-5 shadow-lg mt-3 bg-body rounded">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-10 ">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 class="mb-5 fw-bold">تسجيل الدخول</h3>
+              <form [formGroup]="form" (ngSubmit)="login()">
+              <div class="form-outline mb-4">
+                <input type="text" id="typeEmailX-2" class="form-control text-center"
+                formControlName="email" placeholder="ادخل رقم الهاتف" required />
+                <label class="form-label" for="typeEmailX-2">Phone</label>
+              </div>
+  
+            
+  
+              <div class="input-group mb-4">
+                <input [type]="showPassword? 'text' : 'password'" class="form-control text-center"  placeholder="ادخل الرقم السري" 
+                formControlName="password" required/>
+                <button type="button" (click)='togglePassword()'>
+                    <i *ngIf="!showPassword" class="bi bi-eye-slash-fill"></i>
+                        <i *ngIf="showPassword" class="bi bi-eye-fill"></i>
+                </button>
+                <label class="col-12 form-label" for="typePasswordX-2">Password</label>
+              </div>
+  
+              <button class="btn btn-primary  btn-lg btn-block w-75 sizefont point fw-bold fs-3" type="submit" [disabled]="!form.valid">تسجيل الدخول</button>
+              </form>
+              <div class="mt-2">
+                <div> انشاء حساب جديد</div> <a routerLink="/User/signup" class="btn btn-success py-2 px-lg-2 d-none d-lg-block getstarted scrollto fw-bold fs-3 point">لإنشاء حساب<i class="bi bi-box-arrow-in-up float-end fs-3"></i></a>
+               </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,115 @@
+<!-- <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div> -->
+
+<section id="hero" class="align-items-center">
+
+  <div class="container containerSA">
+    <!-- <a href="#" class=" navbar-brand d-flex align-items-center px-4 px-lg-5 d-md-none">
+      <div class="m-0 "><img src="assets\image\logo.PNG" class="img-fluid point logo" alt=""></div>
+  </a> -->
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up"
+        data-aos-delay="200">
+        <h1>Mr / Shabrawy</h1>
+        <h2>لجعل اليفزياء سهله</h2>
+        <!-- //////////////////////////////////// -->
+        <b class="fs-3 fw-bold text-white text-center">الطلبه المتفوقين لشهر {{userimage?.month}}</b>
+        <div class="cliensUs">
+          <div class="d-flex container">
+
+            <div class="d-flex row row-cols-md-3 row-cols-2" data-aos="zoom-in">
+              
+
+              <div *ngFor="let item of userimage?.imageStu" class=" d-flex mt-2 col ">
+                <img *ngIf="item!=''" [src]="imgurl+item" class="img-fluid point d-flex" />
+                <img *ngIf="item==''" src="assets\image\imageava.png" class="img-fluid point d-flex" />
+              </div>
+            
+            </div>
+          </div>
+          <div class="mt-2"></div>
+        </div>
+
+        <!-- //////////////////////////// -->
+
+        <!-- <div class="d-flex justify-content-center justify-content-lg-start">
+
+        <a href="https://www.youtube.com/c/MrShabrawy" target="_blank"
+          class="glightbox btn-watch-video btn-get-started  scrollto"><i class="bi bi-facebook text-primary"></i><b
+            class="fs-3">اسال المستر</b></a>
+
+      </div> -->
+
+      </div>
+
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/image/hero-img.png" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= Cliens Section ======= -->
+  <section id="cliens" class="cliens section-bg">
+    <div class="container containerSA">
+
+      <div class="row" data-aos="zoom-in">
+
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <a [routerLink]="['/Hschool/first']" routerLinkActive="router-link-active"><img
+              src="assets/image/clients/1styear.png" class="img-fluid point" alt="">
+            <b class="float-start textimg fw-bold w-100">شرح الصف الاول</b></a>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <a [routerLink]="['/Hschool/second']" routerLinkActive="router-link-active"><img
+              src="assets/image/clients/2styear.png" class="img-fluid point" alt="">
+            <b class="float-start textimg fw-bold w-100">شرح الصف الثاني</b></a>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <a [routerLink]="['/Hschool/third']" routerLinkActive="router-link-active"> <img
+              src="assets/image/clients/3styear.png" class="img-fluid point" alt="">
+            <b class="float-start textimg fw-bold w-100">شرح الصف الثالث</b></a>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <a [routerLink]="['/selectExam']" routerLinkActive="router-link-active"><img
+              src="assets/image/clients/m_exam.jpg" class="img-fluid point" alt="">
+            <b class="float-start textimg fw-bold w-100">الاختبارات الشهريه</b></a>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <a [routerLink]="['/Hschool/general']" routerLinkActive="router-link-active"> <img
+              src="assets/image/clients/basics.png" class="img-fluid point" alt="">
+            <b class="float-start textimg fw-bold w-100">شرح عام</b></a>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center ">
+          <a [routerLink]="['/Report']" routerLinkActive="router-link-active"> <img
+              src="assets/image/clients/Reports.png" class="img-fluid point" alt="">
+            <b class="float-start textimg fw-bold w-100">تقارير</b></a>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Cliens Section -->
+</main>
+
+
+
+<script>
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  const glightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
